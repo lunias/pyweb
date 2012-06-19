@@ -1,0 +1,84 @@
+html
+{
+    height: 100%
+}
+
+body
+{
+    background: #dcdcdc
+}
+
+#navigation {
+    position: fixed;
+    padding: 0px;
+    margin: 0px;
+    margin-top: -250px;
+    top: 50%;
+    left: 0px;
+    list-style: none;
+    z-index:9999;
+}
+
+#navigation div#accordion {
+    display: block;
+    margin-bottom: -4px;
+    margin-left: -225px;
+    width: 250px;
+    height: 500px;
+    background-color: #dcdcdc;
+    border: 2px solid #004276;
+    -moz-border-radius: 0em .5em .5em 0em;
+    border-radius: 0em .5em .5em 0em;
+}
+
+#device_list
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#device_list thead th.space
+{
+    background: #ffffff
+}
+
+#device_list thead th.search
+{
+    background: #b9c9fe;
+    -moz-border-radius: 1em 1em 0em 0em;
+    border-radius: 1em 1em 0em 0em;
+}
+
+#device_list thead th.rounded_name
+{
+    background: #b9c9fe;
+    -moz-border-radius: 1em 0em 0em 0em;
+    border-radius: 1em 0em 0em 0em;
+}
+
+#device_list th
+{
+    padding: 8px;
+    font-weight: normal;
+    font-size: 13px;
+    color: #039;
+    background: #b9c9fe;
+}
+
+#device_list td
+{
+    padding: 8px;
+    background: #e8edff;
+    border-top: 1px solid #fff;
+    color: #669;
+}
+
+#device_list tbody tr:hover td
+{
+    background: #d0dafd;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block page_title %}Devices{% endblock %}</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/lib/jquery-1.7.1.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js//lib/jquery-ui-1.8.18.custom.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel=stylesheet type="text/css" href="{{ url_for('static', filename='blitzer/jquery-ui.css') }}">
+
+    <style>
+      .column { width: 600px; float:left; padding-bottom: 100px; }
+      .portlet { margin: 0 1em 1em 0; border: 2px solid #004276}
+      .portlet-header { margin: 0.3em; padding-bottom: 4px; padding-left: 0.2em; }
+      .portlet-header .ui-icon { float: right; }
+      .portlet-content { padding: 0.4em; }
+      .ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
+      .ui-sortable-placeholder * { visibility: hidden; }
+    </style>
+
+  </head>
+  <body>
+    {% block body %}
+    <div id="navigation">
+      <div id="accordion">
+	<h3><a href="#">Widgets</a></h3>
+	<div>
+	  <a href="#">EquipmentOPS</a><br>
+	  <a href="#">Equipment Cycles</a><br>
+	  <a href="#">Active Headings</a><br>
+	  <a href="#">Active MuckPiles</a><br>
+	  <a href="#">Shift Load/Dump</a><br>
+	</div>
+	<h3><a href="#">Settings</a></h3>
+	<div>
+	  <a href="#">Configurations</a><br>
+	  <a href="#">User Preferences</a><br>
+	  <a href="#">Logout</a>
+	</div>
+      </div>
+    </div>
+    <div id="tabs">
+      <ul>
+	<li><a href="#tabs-1">Workspace 1</a></li>
+	<li><a href="#tabs-2">Workspace 2</a></li>
+	<li><a href="#tabs-3">Workspace 3</a></li>
+      </ul>
+      <div id="tabs-1">
+	<div class="column">
+	  <div class="portlet">
+	    <div class="portlet-header">Date Picker 1</div>
+	    <div class="portlet-content"><input class="date_picker" type="text" name="date" /></div>
+	  </div>
+	  <div class="portlet">
+	    <div class="portlet-header">Placeholder Widget</div>
+	    <div class="portlet-content"><p>This is a simple text widget.</p></div>
+	  </div>
+	</div>
+	<div class="column">
+	  <div class="portlet">
+	    <div class="portlet-header">Devices Table</div>
+	    <div class="portlet-content">
+	      <table id="device_list">
+		<thead>
+		  <tr>
+		    <th class="space" />
+		    <th class="space" />
+		    <th class="space" />
+		    <th class="search">
+		      <input class="searchbox" type="text" name="search" value="Search..." \
+			     onclick="this.value='';" onfocus="this.select()" \
+			     onblur="this.value=!this.value?'Search...':this.value;" onkeyup="filter(this, 'device_list')"/>
+		    </th>
+		  </tr>
+		  <tr>
+		    <th scope="col" class="rounded_name">Name</th>
+		    <th scope="col" class="rounded_group">Group</th>
+		    <th scope="col" class="rounded_installed">Installed Version</th>
+		    <th scope="col" class="rounded_updated">Last Updated At</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  {% for entry in entries %}
+		  <tr>
+		    <td>{{ entry.name }}</td>
+		    <td>{{ entry.group.name }}</td>
+		    <td>{{ entry.installed_version }}</td>
+		    <td>{{ entry.updated_at }}</td>
+		  </tr>
+		  {% endfor %}
+		</tbody>
+	      </table>
+	    </div>
+	  </div>
+	</div>
+	<div class="column">
+	</div>
+	<div style="clear:both;"></div>
+      </div>
+      <div id="tabs-2">
+	<div class="column">
+	</div>
+	<div class="column">
+	</div>
+	<div class="column">
+	  <div class="portlet">
+	    <div class="portlet-header">Date Picker 2</div>
+	    <div class="portlet-content"><input class="date_picker" type="text" name="date2" /></div>
+	  </div>
+	</div>
+	<div style="clear:both;"></div>
+      </div>
+      <div id="tabs-3">
+	<div class="column">
+	</div>
+	<div class="column">
+	</div>
+	<div class="column">
+	</div>
+	<div style="clear:both;"></div>
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>
+
